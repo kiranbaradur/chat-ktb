@@ -74,10 +74,9 @@ const handleSubmit = async (e) => {
   const messageDiv = document.getElementById(uniqueId);
 
   loader(messageDiv);
-
   // fetch data from server - bot's response
   
-  const response = await fetch('https://chat-ktb.onrender.com',{
+  const response = await fetch('http://localhost:5000/',{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -99,7 +98,7 @@ const handleSubmit = async (e) => {
   } else {
     const err = await response.text();
     messageDiv.innerHTML = "Something went wrong";
-    
+    console.log(err);
     alert(err);
   }
 
